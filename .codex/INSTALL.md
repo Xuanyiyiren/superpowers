@@ -22,7 +22,7 @@ Enable superpowers skills in Codex via native skill discovery. Just clone and sy
    **Windows (PowerShell):**
    ```powershell
    New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
-   cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE\.codex\superpowers\skills"
+   cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE\superpowers\skills"
    ```
 
 3. **Restart Codex** (quit and relaunch the CLI) to discover the skills.
@@ -53,7 +53,7 @@ You should see a symlink (or junction on Windows) pointing to your superpowers s
 ## Updating
 
 ```bash
-cd ~/.codex/superpowers && git pull
+cd ~/superpowers && git pull
 ```
 
 Skills update instantly through the symlink.
@@ -64,4 +64,4 @@ Skills update instantly through the symlink.
 rm ~/.agents/skills/superpowers
 ```
 
-Optionally delete the clone: `rm -rf ~/.codex/superpowers`.
+Optionally delete the clone: `rm -rf ~/superpowers`.

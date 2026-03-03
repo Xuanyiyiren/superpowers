@@ -21,13 +21,13 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superp
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
+   git clone https://github.com/obra/superpowers.git ~/superpowers
    ```
 
 2. Create the skills symlink:
    ```bash
    mkdir -p ~/.agents/skills
-   ln -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+   ln -s ~/superpowers/skills ~/.agents/skills/superpowers
    ```
 
 3. Restart Codex.
@@ -38,7 +38,7 @@ Use a junction instead of a symlink (works without Developer Mode):
 
 ```powershell
 New-Item -ItemType Directory -Force -Path "$env:USERPROFILE\.agents\skills"
-cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE\.codex\superpowers\skills"
+cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE\superpowers\skills"
 ```
 
 ## How It Works
@@ -46,7 +46,7 @@ cmd /c mklink /J "$env:USERPROFILE\.agents\skills\superpowers" "$env:USERPROFILE
 Codex has native skill discovery — it scans `~/.agents/skills/` at startup, parses SKILL.md frontmatter, and loads skills on demand. Superpowers skills are made visible through a single symlink:
 
 ```
-~/.agents/skills/superpowers/ → ~/.codex/superpowers/skills/
+~/.agents/skills/superpowers/ → ~/superpowers/skills/
 ```
 
 The `using-superpowers` skill is discovered automatically and enforces skill usage discipline — no additional configuration needed.
@@ -84,7 +84,7 @@ The `description` field is how Codex decides when to activate a skill automatica
 ## Updating
 
 ```bash
-cd ~/.codex/superpowers && git pull
+cd ~/superpowers && git pull
 ```
 
 Skills update instantly through the symlink.
@@ -100,14 +100,14 @@ rm ~/.agents/skills/superpowers
 Remove-Item "$env:USERPROFILE\.agents\skills\superpowers"
 ```
 
-Optionally delete the clone: `rm -rf ~/.codex/superpowers` (Windows: `Remove-Item -Recurse -Force "$env:USERPROFILE\.codex\superpowers"`).
+Optionally delete the clone: `rm -rf ~/superpowers` (Windows: `Remove-Item -Recurse -Force "$env:USERPROFILE\superpowers"`).
 
 ## Troubleshooting
 
 ### Skills not showing up
 
 1. Verify the symlink: `ls -la ~/.agents/skills/superpowers`
-2. Check skills exist: `ls ~/.codex/superpowers/skills`
+2. Check skills exist: `ls ~/superpowers/skills`
 3. Restart Codex — skills are discovered at startup
 
 ### Windows junction issues
