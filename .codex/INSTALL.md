@@ -10,13 +10,13 @@ Enable superpowers skills in Codex via native skill discovery. Just clone and sy
 
 1. **Clone the superpowers repository:**
    ```bash
-   git clone https://github.com/obra/superpowers.git ~/.codex/superpowers
+   git clone https://github.com/obra/superpowers.git ~/superpowers
    ```
 
 2. **Create the skills symlink:**
    ```bash
    mkdir -p ~/.agents/skills
-   ln -s ~/.codex/superpowers/skills ~/.agents/skills/superpowers
+   ln -s ~/superpowers/skills ~/.agents/skills/superpowers
    ```
 
    **Windows (PowerShell):**
@@ -33,7 +33,7 @@ If you installed superpowers before native skill discovery, you need to:
 
 1. **Update the repo:**
    ```bash
-   cd ~/.codex/superpowers && git pull
+   cd ~/superpowers && git pull
    ```
 
 2. **Create the skills symlink** (step 2 above) — this is the new discovery mechanism.
